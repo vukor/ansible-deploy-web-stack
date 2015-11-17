@@ -1,0 +1,17 @@
+---
+- name: Tools | Install system packages
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
+    - vim-enhanced
+    - ntsysv
+    - screen
+    - mc
+    - wget
+    - mailx
+    - man
+    - libselinux-python
+
+- name: Tools | Copy vim config
+  copy: src=.vimrc dest=/root/.vimrc

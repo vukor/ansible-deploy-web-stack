@@ -1,0 +1,3 @@
+---
+- include: epel.yml tags=setup,epel
+- include: atomic.yml tags=setup,atomic

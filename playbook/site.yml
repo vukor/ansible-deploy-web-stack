@@ -1,0 +1,8 @@
+---
+- hosts: centos-vm
+
+  roles:
+    - repo
+    - tools
+
+

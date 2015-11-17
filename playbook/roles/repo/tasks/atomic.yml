@@ -1,0 +1,3 @@
+---
+- name: Install ATOMIC repository
+  shell: rpm -q atomic-release >/dev/null || wget -q -O - https://www.atomicorp.com/installers/atomic | sed 's/!\ $NON_INT/$NON_INT/' | sh
