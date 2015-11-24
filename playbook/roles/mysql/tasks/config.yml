@@ -1,5 +1,5 @@
 ---
-- name: MySQL | Copy config
+- name: Copy config
   copy: >
     src=my.cnf
     dest=/etc/my.cnf
@@ -7,7 +7,7 @@
     group: root
     mode: 0644
 
-- name: MySQL | Configure log
+- name: Configure log
   file: >
     path=/var/log/mysql
     owner=mysql

@@ -1,8 +1,8 @@
 ---
-- name: Nginx | Install repository
+- name: Install repository
   yum: name=http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
 
-- name: Nginx | Install packages
+- name: Install packages
   yum: >
     pkg={{item}}
     state=latest

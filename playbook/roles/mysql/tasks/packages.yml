@@ -1,5 +1,5 @@
 ---
-- name: MySQL | Install packages
+- name: Install packages
   yum: >
     pkg={{item}}
     state=latest

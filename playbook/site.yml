@@ -7,7 +7,6 @@
     - ssh
     - mysql
     - { role: user, when: mysql_is_installed }
-    #- { role: nginx, mode: "not ssl" }
     - nginx
     #- php
     #- postfix

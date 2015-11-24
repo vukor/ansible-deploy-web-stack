@@ -1,10 +1,10 @@
 ---
-- name: Nginx | Copy wp config
+- name: Copy wp config
   template: >
     src=hosts/virtualhost-wp.conf.j2
     dest=/etc/nginx/hosts/{{ prj_host }}.conf
 
-- name: Nginx | Secure wp site
+- name: Secure wp site
   copy: >
     src=includes
     dest=/etc/nginx/
@@ -12,7 +12,7 @@
     group=root
     mode=0644
 
-- name: Nginx | Copy wp ssl config
+- name: Copy wp ssl config
   template: >
     src=hosts/virtualhost-wp-ssl.conf.j2
     dest=/etc/nginx/hosts/{{ prj_host }}-ssl.conf

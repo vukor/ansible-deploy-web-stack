@@ -1,10 +1,10 @@
 ---
-- name: Nginx | Copy v5 config
+- name: Copy v5 config
   template: >
     src=hosts/virtualhost-v5.conf.j2
     dest=/etc/nginx/hosts/{{ prj_host }}.conf
 
-- name: Nginx | Copy v5 ssl config
+- name: Copy v5 ssl config
   template: >
     src=hosts/virtualhost-v5-ssl.conf.j2
     dest=/etc/nginx/hosts/{{ prj_host }}-ssl.conf

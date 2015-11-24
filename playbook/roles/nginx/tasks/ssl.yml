@@ -1,5 +1,5 @@
 ---
-- name: Nginx | Copy ssl cert
+- name: Copy ssl cert
   copy: >
     src=ssl/{{ prj_host }}.crt
     dest=/etc/nginx/ssl/
@@ -8,7 +8,7 @@
     mode=0400
   when: prj_ssl
 
-- name: Nginx | Copy ssl private key
+- name: Copy ssl private key
   copy: >
     src=ssl/{{ prj_host }}.key
     dest=/etc/nginx/ssl/{{ prj_host }}.key

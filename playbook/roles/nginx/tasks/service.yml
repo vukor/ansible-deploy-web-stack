@@ -1,5 +1,5 @@
 ---
-- name: Nginx | Enable and start service
+- name: Enable and start service
   service: >
     name=nginx
     enabled=yes

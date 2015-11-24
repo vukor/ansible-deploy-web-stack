@@ -1,5 +1,5 @@
 ---
-- name: Tools | Install system packages
+- name: Install system packages
   yum: >
     pkg={{item}}
     state=latest
@@ -13,5 +13,5 @@
     - man
     - libselinux-python
 
-- name: Tools | Copy vim config
+- name: Copy vim config
   copy: src=.vimrc dest=/root/.vimrc
