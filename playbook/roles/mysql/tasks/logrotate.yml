@@ -1,0 +1,8 @@
+---
+- name: MySQL | Configure logrotate
+  copy: >
+    src=logrotate.d/mysqld
+    dest=/etc/logrotate.d/mysqld
+    owner: root
+    group: root
+    mode: 0644

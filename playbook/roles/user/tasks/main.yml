@@ -1,0 +1,3 @@
+---
+- include: group.yml tags=setup,hotfix,user
+- include: user.yml tags=setup,hotfix,user

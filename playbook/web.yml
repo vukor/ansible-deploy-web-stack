@@ -1,6 +1,0 @@
----
-- hosts: xubuntu-vm
-
-  roles:
-    - nginx
-

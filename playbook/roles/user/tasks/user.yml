@@ -1,0 +1,33 @@
+---
+- name: User | Create project user
+  user: >
+    name={{ prj_user }}
+    group={{ prj_group }}
+    groups=mysql
+    comment="account for developers"
+    shell=/bin/bash
+    state=present
+
+- name: User | Set permissions on project user's home
+  file: >
+    path=/home/{{ prj_user }}
+    owner={{ prj_user }}
+    group={{ prj_group }}
+    mode=0710
+    state=directory
+
+- name: User | Create project users's log directory
+  file: >
+    path=/home/{{ prj_user }}/logs
+    owner={{ prj_user }}
+    group={{ prj_group }}
+    mode=0770
+    state=directory
+
+- name: User | Create project users's www directory
+  file: >
+    path=/home/{{ prj_user }}/www
+    owner={{ prj_user }}
+    group={{ prj_group }}
+    mode=0770
+    state=directory

@@ -1,0 +1,10 @@
+/home/{{ prj_user }}/www/*/var/*log {
+	daily
+        missingok
+        rotate 7
+        compress
+        delaycompress
+        notifempty
+        create 640 {{ prj_user }} {{ prj_group }}
+        sharedscripts
+}

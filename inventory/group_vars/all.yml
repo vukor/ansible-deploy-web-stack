@@ -1,0 +1,15 @@
+---
+## Set project type - it might be v5 | v5-ssl | wp | wp-ssl
+prj_type: wp
+
+## Turn on project ssl if you need SSL support in virtual host
+prj_ssl: true
+
+## Set project site name
+prj_host: test.com
+
+## Set project username
+prj_user: dev
+
+## Set project primary groupname
+prj_group: www

@@ -1,0 +1,16 @@
+---
+- name: Nginx | Configure www logrotate
+  template: >
+    src=logrotate.d/www.conf.j2
+    dest=/etc/logrotate.d/www.conf
+    owner=root
+    group=root
+    mode=0644
+
+- name: Nginx | Configure dev logrotate
+  template: >
+    src=logrotate.d/dev.conf.j2
+    dest=/etc/logrotate.d/dev.conf
+    owner=root
+    group=root
+    mode=0644

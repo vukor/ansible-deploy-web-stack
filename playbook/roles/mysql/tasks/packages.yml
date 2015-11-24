@@ -1,0 +1,9 @@
+---
+- name: MySQL | Install packages
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
+    - mysql
+    - mysql-server
+  register: mysql_is_installed

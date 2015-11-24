@@ -1,8 +1,15 @@
 ---
 - hosts: centos-vm
-
+  gather_facts: no
   roles:
     - repo
     - tools
-
-
+    - ssh
+    - mysql
+    - { role: user, when: mysql_is_installed }
+    #- { role: nginx, mode: "not ssl" }
+    - nginx
+    #- php
+    #- postfix
+    #- iptables
+    #- cloud.rackspace

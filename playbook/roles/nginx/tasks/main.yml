@@ -1,21 +1,16 @@
 ---
-- name: Update apt cache
-  apt: update_cache=yes
+- include: packages.yml tags=setup,hotfix,nginx
 
-- name: Install required packages
-  apt: name=nginx
+- include: config.yml tags=setup,hotfix,nginx
 
-- name: Start nginx service
-  service: name=nginx state=started
+- include: config-v5.yml tags=setup,hotfix,nginx
+  when: prj_type == 'v5'
 
-- name: Delete default nginx site
-  file: path=/etc/nginx/sites-enabled/default state=absent
-  notify: reload nginx
+- include: config-wp.yml tags=setup,hotfix,nginx
+  when: prj_type == 'wp'
 
-- name: Create default nginx site
-  template: src=nginx.conf.j2 dest=/etc/nginx/sites-enabled/nginx owner=www-data group=www-data
-  notify: reload nginx
+- include: ssl.yml tags=setup,hotfix,nginx,ssl
 
-- name: Create index.html file
-  template: src=index.html.j2 dest=/usr/share/nginx/html/index.html owner=www-data group=www-data
+- include: service.yml tags=setup,hotfix,nginx
 
+- include: logrotate.yml tags=setup,hotfix,nginx,logrotate

@@ -1,0 +1,54 @@
+server {
+	listen       80;
+	server_name  {{ prj_host }} www.{{ prj_host }};
+
+	charset utf8;
+	access_log /home/{{ prj_user }}/logs/{{ prj_host }}.access.log  main;
+	error_log /home/{{ prj_user }}/logs/{{ prj_host }}.error.log  warn;
+	
+	root  /home/{{ prj_user }}/www/{{ prj_host }}/www/;
+	index  index.php;
+
+	## rewrite rules
+	location / {
+	  rewrite ^/(ru/|en/)?download/.*$ /code/core/download.php redirect;
+          try_files $uri $uri/ /index.php$is_args$args;
+        }
+
+	## if we use ssl
+	#location /cms {
+    	#  return 301 https://{{ prj_host }}$request_uri;
+	#}
+
+	## php settings
+	location ~ /(index|upgrade|install|test)\.php$|/code/*\.php$
+		fastcgi_pass   127.0.0.1:9000;
+		fastcgi_index  index.php;
+		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+		include        fastcgi_params;
+	}
+	## deny all other
+	location ~ \.php { return 403; }
+
+	## rewrite for htester
+	location /htester/ {
+		## exact rewrite /mod-rewrite/ to ?mod_rewrite_test
+		rewrite ^/htester/(.*)mod-rewrite/$ /htester/index.php?mod_rewrite_test last;
+
+		## Next 2 lines is for total redirect, exclude existing files. Not required for htester
+		## rest is goes to index.php, but it unnecessary.
+		## try_files $uri $uri/ /htester/index.php$is_args$args;
+	}
+
+	## x-sendfile
+  	location /x-sendfile/ {
+	  internal;
+	  alias  /home/{{ prj_user }}/www/{{ prj_host }}/www/;
+	}
+
+	## deny view .htaccess
+	location ~ /\.ht {
+		deny  all;
+	}
+}
+

@@ -1,0 +1,16 @@
+---
+- name: SSH | Install OpenSSH Server
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
+    - openssh-server
+
+- name: SSH | Copy OpenSSH Server Config
+  copy: src=sshd_config dest=/etc/ssh/sshd_config
+
+- name: SSH | Start OpenSSH Server
+  service: >
+    name=sshd
+    state=started
+    enabled=yes

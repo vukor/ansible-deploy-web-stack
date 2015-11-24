@@ -1,0 +1,39 @@
+server {
+	listen       80;
+	server_name  {{ prj_host }} www.{{ prj_host }};
+
+	charset utf8;
+	access_log /home/{{ prj_user }}/logs/{{ prj_host }}.access.log  main;
+	error_log /home/{{ prj_user }}/logs/{{ prj_host }}.error.log  warn;
+	
+	root  /home/{{ prj_user }}/www/{{ prj_host }}/www/;
+	index  index.php;
+
+	## secure wp
+	include /etc/nginx/includes/wp-security.conf;
+
+	location / {
+        	try_files $uri $uri/ /index.php$is_args$args;
+        }
+
+	## if we use ssl
+	#location ~  (wp-admin/|wp-login\.php) {
+	#	return 301 https://{{ prj_host }}$request_uri;
+	#}
+
+	## php settings
+	location ~ (index|xmlrpc|wp-login)\.php$|/wp-admin/*\.php$ {
+		fastcgi_pass   127.0.0.1:9000;
+		fastcgi_index  index.php;
+		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+		include        fastcgi_params;
+	}
+	## deny all other
+	location ~ \.php { return 403; }
+
+	## deny view .htaccess
+	location ~ /\.ht {
+		deny  all;
+	}
+}
+
