@@ -1,0 +1,12 @@
+---
+- name: Enable and restart service iptables
+  service: >
+    name=iptables
+    enabled=yes
+    state=restarted
+
+- name: Enable and restart service ip6tables
+  service: >
+    name=ip6tables
+    enabled=yes
+    state=restarted

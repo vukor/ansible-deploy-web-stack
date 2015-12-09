@@ -1,0 +1,8 @@
+---
+- name: Install packages
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
+    - iptables
+    - iptables-v6
