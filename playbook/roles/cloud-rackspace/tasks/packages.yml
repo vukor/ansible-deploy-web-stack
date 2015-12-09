@@ -1,0 +1,10 @@
+---
+- name: Install repository
+  yum: name=https://meta.packages.cloudmonitoring.rackspace.com/centos-6-x86_64/rackspace-cloud-monitoring-meta-stable-1-0.noarch.rpm
+
+- name: Install packages
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
+    - rackspace-monitoring-agent
