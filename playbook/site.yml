@@ -8,7 +8,7 @@
     - mysql
     - { role: user, when: mysql_is_installed }
     - nginx
-    #- php
+    - php
     #- postfix
     #- iptables
     #- cloud.rackspace

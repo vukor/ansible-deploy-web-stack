@@ -1,0 +1,8 @@
+---
+- name: Set correct permissions to log directory
+  file: >
+    path=/var/log/php-fpm/
+    owner={{prj_user}}
+    group={{prj_group}}
+    mode=0770
+    state=directory

@@ -1,0 +1,13 @@
+---
+- name: Install packages
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
+    - php
+    - php-cli
+    - php-mysql
+    - php-mbstring
+    - php-gd
+    - php-fpm
+    - ImageMagick

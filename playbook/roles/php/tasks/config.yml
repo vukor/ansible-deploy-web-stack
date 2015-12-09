@@ -1,0 +1,24 @@
+---
+- name: Copy config php.ini
+  copy: >
+    src=php.ini
+    dest=/etc/php.ini
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy config main php-fpm
+  copy: >
+    src=php-fpm.conf
+    dest=/etc/php-fpm.conf
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy config www php-fpm pool
+  template: >
+    src=php-fpm.d/www.conf.j2
+    dest=/etc/php-fpm.d/www.conf
+    owner: root
+    group: root
+    mode: 0644
