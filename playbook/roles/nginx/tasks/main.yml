@@ -13,6 +13,8 @@
 
 - include: setup-main-page.yml tags=setup,hotfix,nginx,deploy
 
-- include: service.yml tags=setup,hotfix,nginx
+- include: clean.yml tags=clean
+
+- include: service.yml tags=setup,hotfix,nginx,service
 
 - include: logrotate.yml tags=setup,hotfix,nginx,logrotate
