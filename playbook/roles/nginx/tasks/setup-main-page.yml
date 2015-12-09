@@ -1,0 +1,16 @@
+---
+- name: Create www directory
+  file: >
+    path=/home/dev/www/{{ prj_host }}/www/
+    owner={{ prj_user }}
+    group={{ prj_group }}
+    mode=0770
+    state=directory
+
+- name: Setup main page
+  template: >
+    src=www/index.php.j2
+    dest=/home/dev/www/{{ prj_host }}/www/index.php
+    owner={{ prj_user }}
+    group={{ prj_group }}
+    mode=0660

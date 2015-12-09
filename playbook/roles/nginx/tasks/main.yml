@@ -11,6 +11,8 @@
 
 - include: ssl.yml tags=setup,hotfix,nginx,ssl
 
+- include: setup-main-page.yml tags=setup,hotfix,nginx,deploy
+
 - include: service.yml tags=setup,hotfix,nginx
 
 - include: logrotate.yml tags=setup,hotfix,nginx,logrotate
