@@ -1,0 +1,6 @@
+---
+- name: Enable and restart service
+  service: >
+    name=postfix
+    enabled=yes
+    state=restarted
