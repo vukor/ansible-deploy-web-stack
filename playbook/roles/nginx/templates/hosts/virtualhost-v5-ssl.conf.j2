@@ -24,7 +24,7 @@ server {
 	}
 
 	## not redirect static
-	location ~* \.(css|js|png|woff|ttf|jpg|jpeg|gif)$ {
+	location ~* \.(css|js|png|woff|ttf|jpg|jpeg|gif|svg)$ {
 	  root  /home/{{ prj_user }}/www/{{ prj_host }}/www/;
   	}
 
