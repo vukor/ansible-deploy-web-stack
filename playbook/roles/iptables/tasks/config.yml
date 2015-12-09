@@ -1,5 +1,5 @@
 ---
-- name: Copy config php.ini
+- name: Copy config iptables
   copy: >
     src=iptables
     dest=/etc/sysconfig/iptables
@@ -7,7 +7,7 @@
     group: root
     mode: 0644
 
-- name: Copy config main php-fpm
+- name: Copy config ip6tables
   copy: >
     src=ip6tables
     dest=/etc/sysconfig/ip6tables

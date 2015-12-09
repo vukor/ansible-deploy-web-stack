@@ -1,0 +1,11 @@
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p tcp -m tcp -m multiport --dports 22,80,443 -m conntrack --ctstate NEW,ESTABLISHED -m comment --comment "Accessing ssh,www" -j ACCEPT
+-A INPUT -p ipv6-icmp -m icmp6 --icmpv6-type 128 -m comment --comment "Accepting ping packets" -m limit --limit 60/min -j ACCEPT
+-A INPUT -p ipv6-icmp -m icmp6 --icmpv6-type 129 -m comment --comment "Accepting pong packets" -m limit --limit 60/min -j ACCEPT
+-A INPUT -p ipv6-icmp -m icmp6 --icmpv6-type 3 -m comment --comment "Acceptong traceroute packets" -m limit --limit 60/min -j ACCEPT
+-A INPUT -m comment --comment "REJECT ALL OTHER" -j REJECT --reject-with icmp6-port-unreachable
+COMMIT

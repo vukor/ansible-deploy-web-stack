@@ -5,4 +5,4 @@
     state=latest
   with_items:
     - iptables
-    - iptables-v6
+    - iptables-ipv6
