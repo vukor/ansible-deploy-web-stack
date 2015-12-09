@@ -1,0 +1,22 @@
+---
+- name: Delete v5 config
+  file: >
+    path=/etc/nginx/hosts/{{ prj_host }}.conf
+    state=absent
+
+- name: Delete v5 ssl config
+  file: >
+    path=/etc/nginx/hosts/{{ prj_host }}-ssl.conf
+    state=absent
+  when: prj_ssl
+
+- name: Delete wp security config
+  file: >
+    path=/etc/nginx/includes/wp-security.conf
+    state=absent
+  when: prj_type == 'wp'
+
+- name: Delete www directory
+  file: >
+    path=/home/dev/www/{{ prj_host }}/
+    state=absent
