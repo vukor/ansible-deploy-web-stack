@@ -3,7 +3,7 @@
 prj_type: wp
 
 ## Turn on project ssl if you need SSL support in virtual host
-prj_ssl: true
+prj_ssl: false
 
 ## Set project site name
 prj_host: test.com
