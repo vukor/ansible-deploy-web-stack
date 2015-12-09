@@ -3,4 +3,4 @@
   service: >
     name=mysqld
     enabled=yes
-    state=started
+    state=restarted

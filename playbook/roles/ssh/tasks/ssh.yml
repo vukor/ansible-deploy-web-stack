@@ -12,5 +12,5 @@
 - name: Start OpenSSH Server
   service: >
     name=sshd
-    state=started
+    state=restarted
     enabled=yes
