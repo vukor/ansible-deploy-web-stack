@@ -1,5 +1,5 @@
 ---
-- hosts: centos-vm
+- hosts: default
   gather_facts: no
   roles:
     - repo
