@@ -9,6 +9,10 @@
 - name: Copy OpenSSH Server Config
   copy: src=sshd_config dest=/etc/ssh/sshd_config
 
+- name: Copy Vagrant OpenSSH Server Config
+  when: vagrant
+  copy: src=vagrant_sshd_config dest=/etc/ssh/sshd_config
+
 - name: Start OpenSSH Server
   service: >
     name=sshd
