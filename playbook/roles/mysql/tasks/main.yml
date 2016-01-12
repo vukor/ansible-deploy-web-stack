@@ -1,5 +1,6 @@
 ---
 - include: packages.yml tags=setup,hotfix,mysql
 - include: config.yml tags=setup,hotfix,mysql
+#- include: permissions.yml tags=setup,hotfix,mysql
 - include: service.yml tags=setup,hotfix,mysql
 - include: logrotate.yml tags=setup,hotfix,mysql,logrotate

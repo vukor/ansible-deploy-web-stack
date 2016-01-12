@@ -1,16 +1,34 @@
 ---
-- name: Copy config
+- name: Copy mysql config for CentOS 6
   copy: >
-    src=my.cnf
+    src=mysql.cnf
     dest=/etc/my.cnf
     owner: root
     group: root
     mode: 0644
+  when: ansible_distribution_major_version == "6"
+
+- name: Copy mariadb config for CentOS 7
+  copy: >
+    src=mariadb.cnf
+    dest=/etc/my.cnf
+    owner: root
+    group: root
+    mode: 0644
+  when: ansible_distribution_major_version == "7"
 
 - name: Configure log
   file: >
     path=/var/log/mysql
     owner=mysql
     group=mysql
-    mode=0770
+    mode=0750
     state=directory
+
+- name: Copy root mysql config
+  template: >
+    src=.my.cnf
+    dest=/root/.my.cnf
+    owner: root
+    group: root
+    mode: 0600

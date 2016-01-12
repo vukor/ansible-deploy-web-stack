@@ -1,9 +1,22 @@
 ---
-- name: Install packages
+- name: Install packages for CentOS 6
   yum: >
     pkg={{item}}
     state=latest
   with_items:
     - mysql
     - mysql-server
+    - MySQL-python
   register: mysql_is_installed
+  when: ansible_distribution_major_version == "6"
+
+- name: Install packages for CentOS 7
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
+    - mariadb
+    - mariadb-server
+    - MySQL-python
+  register: mysql_is_installed
+  when: ansible_distribution_major_version == "7"
