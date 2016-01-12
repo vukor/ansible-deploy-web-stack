@@ -4,11 +4,78 @@
     pkg={{item}}
     state=latest
   with_items:
+    - ImageMagick
+    - bind-utils
+
+## Install base PHP version 5.3 in CentOS 6
+- name: Install base PHP version 5.3
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
     - php
     - php-cli
     - php-mysql
     - php-mbstring
     - php-gd
     - php-fpm
-    - ImageMagick
-    - bind-utils
+  when: php_version == 5.3 and (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6")
+
+## Install base PHP version 5.4 in CentOS 7
+- name: Install base PHP version 5.4
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
+    - php
+    - php-cli
+    - php-mysql
+    - php-mbstring
+    - php-gd
+    - php-fpm
+  when: php_version == 5.4 and (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+
+## Install remi PHP version 5.4 in CentOS 6
+- name: Install remi PHP version 5.4
+  yum: >
+    pkg={{item}}
+    enablerepo=remi
+    state=latest
+  with_items:
+    - php
+    - php-cli
+    - php-mysql
+    - php-mbstring
+    - php-gd
+    - php-fpm
+  when: php_version == 5.4 and (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6")
+
+## Install remi PHP version 5.5 in CentOS 6/7
+- name: Install remi PHP version 5.5
+  yum: >
+    pkg={{item}}
+    enablerepo=remi,remi-php55
+    state=latest
+  with_items:
+    - php
+    - php-cli
+    - php-mysql
+    - php-mbstring
+    - php-gd
+    - php-fpm
+  when: php_version == 5.5
+
+## Install remi PHP version 5.6 in CentOS 6/7
+- name: Install remi PHP version 5.6
+  yum: >
+    pkg={{item}}
+    enablerepo=remi,remi-php56
+    state=latest
+  with_items:
+    - php
+    - php-cli
+    - php-mysql
+    - php-mbstring
+    - php-gd
+    - php-fpm
+  when: php_version == 5.6
