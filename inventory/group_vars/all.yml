@@ -1,15 +1,24 @@
 ---
-## Set project type - it might be v5 | v5-ssl | wp | wp-ssl
-prj_type: wp
+## Is it vagrant host
+vagrant: false
+
+## Set project type - it might be v5 | wp
+prj_type: v5
 
 ## Turn on project ssl if you need SSL support in virtual host
 prj_ssl: false
 
 ## Set project site name
-prj_host: test.com
+prj_host: HOST
 
 ## Set project username
 prj_user: dev
 
 ## Set project primary groupname
 prj_group: www
+
+## Set PHP version - it might be 5.3 | 5.4 | 5.5 | 5.6 | 7 (only 5.6 works now)
+php_version: 5.6
+
+## Mysql password
+mysql_root_password: 'secret'
