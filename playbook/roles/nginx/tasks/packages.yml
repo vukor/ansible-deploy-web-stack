@@ -1,6 +1,11 @@
 ---
-- name: Install repository
+- name: Install repository for Centos 6
   yum: name=http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
+  when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6")
+
+- name: Install repository for Centos 7
+  yum: name=http://nginx.org/packages/centos/7/x86_64/RPMS/nginx-1.8.0-1.el7.ngx.x86_64.rpm
+  when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
 
 - name: Install packages
   yum: >
