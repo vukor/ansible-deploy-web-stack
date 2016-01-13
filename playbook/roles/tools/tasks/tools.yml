@@ -12,6 +12,7 @@
     - mailx
     - man
     - libselinux-python
+    - rsync
 
 - name: Copy vim config
   copy: src=.vimrc dest=/root/.vimrc
