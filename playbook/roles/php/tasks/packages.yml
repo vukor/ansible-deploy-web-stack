@@ -1,5 +1,6 @@
 ---
-- name: Install packages
+## Install additional packages for PHP
+- name: Install additional packages for PHP
   yum: >
     pkg={{item}}
     state=latest
