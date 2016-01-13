@@ -27,7 +27,7 @@
 
 - name: Copy root mysql config
   template: >
-    src=.my.cnf
+    src=.my.cnf.j2
     dest=/root/.my.cnf
     owner: root
     group: root
