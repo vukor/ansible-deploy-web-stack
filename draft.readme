@@ -15,6 +15,7 @@
   
   
   Сделать:
-  добавить makefile для shortcut'ов ansible-playbook
-  mysql - удаление бд test, удаление лишних юзеров, задать пароль к root
+  - добавить makefile для shortcut'ов ansible-playbook
+  - mysql - удаление бд test, удаление лишних юзеров, задать пароль к root
+  - задать пароль для dev
   
