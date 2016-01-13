@@ -1,0 +1,8 @@
+---
+- name: Set hostname for CentOS 6
+  template: src=hostname.j2 dest=/etc/sysconfig/network
+  when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6")
+
+- name: Set hostname for CentOS 7
+  command: /bin/hostnamectl set-hostname {{ prj_host }}
+  when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
