@@ -1,4 +1,0 @@
----
-- name: Install ATOMIC repository
-  shell: rpm -q atomic-release >/dev/null || wget -q -O - https://www.atomicorp.com/installers/atomic | sed 's/!\ $NON_INT/$NON_INT/' | sh
-  when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6" and php_version == 5.4)
