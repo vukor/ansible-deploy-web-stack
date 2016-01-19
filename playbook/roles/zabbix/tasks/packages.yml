@@ -1,0 +1,8 @@
+---
+## Install zabbix-agent
+- name: Install zabbix-agent
+  yum: >
+    pkg={{item}}
+    state=latest
+  with_items:
+    - zabbix-agent

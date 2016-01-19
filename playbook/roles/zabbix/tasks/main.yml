@@ -1,0 +1,9 @@
+---
+- include: packages.yml
+  tags: setup,hotfix,zabbix
+
+- include: config.yml
+  tags: setup,hotfix,zabbix
+
+- include: service.yml
+  tags: setup,hotfix,zabbix
