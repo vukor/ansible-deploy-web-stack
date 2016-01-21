@@ -1,1 +1,2 @@
 .idea
+roles/nginx/files/ssl/*
