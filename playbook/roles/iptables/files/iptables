@@ -5,6 +5,7 @@
 -A INPUT -i lo -j ACCEPT 
 -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
 -A INPUT -p tcp -m state --state NEW -m tcp -m multiport --dports 22,80,443 -m comment --comment "Accessing ssh,www" -j ACCEPT
+-A INPUT -p tcp -s bsd.d4m.in -m state --state NEW -m tcp --dport 10050 -m comment --comment "Accessing zabbix-server" -j ACCEPT
 -A INPUT -p icmp -m comment --comment "Accepting ping packets" -m icmp --icmp-type 8 -m limit --limit 30/min -j ACCEPT
 -A INPUT -p icmp -m comment --comment "Accepting pong packets" -m icmp --icmp-type 0 -m limit --limit 30/min -j ACCEPT
 -A INPUT -p icmp -m comment --comment "Accepting traceroute packets" -m icmp --icmp-type 11 -m limit --limit 30/min -j ACCEPT
