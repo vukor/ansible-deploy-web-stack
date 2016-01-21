@@ -1,2 +1,2 @@
 .idea
-roles/nginx/files/ssl/*
+playbook/roles/nginx/files/ssl/*
