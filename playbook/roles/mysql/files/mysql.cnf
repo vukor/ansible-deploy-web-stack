@@ -16,6 +16,9 @@ query_cache_size = 256M
 thread_cache_size = 32 
 table_open_cache = 1000
 
+## set charset
+character-set-server=utf8
+
 [mysqld_safe]
 ## logs
 log-error=/var/log/mysql/error.log
