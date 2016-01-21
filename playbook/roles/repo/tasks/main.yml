@@ -1,4 +1,9 @@
 ---
-- include: epel.yml tags=setup,hotfix,repo,epel
-#- include: atomic.yml tags=setup,hotfix,repo,atomic
-- include: remi.yml tags=setup,hotfix,repo,remi
+- include: epel.yml
+  tags: setup,hotfix,repo,epel
+
+- include: remi.yml
+  tags: setup,hotfix,repo,remi
+
+- include: zabbix.yml
+  tags: setup,hotfix,repo,zabbix
