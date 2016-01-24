@@ -19,4 +19,6 @@
   - mysql - удаление бд test, удаление лишних юзеров, задать пароль к root
   - задать пароль для dev
   - добавить rsnapshot/holland
+  - добавить dkim ?
+  - добавить zabbix, добавить ztc - https://xakep.ru/2014/08/13/using-zabbix/
   
