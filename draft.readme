@@ -21,4 +21,6 @@
   - добавить rsnapshot/holland
   - добавить dkim ?
   - добавить zabbix, добавить ztc - https://xakep.ru/2014/08/13/using-zabbix/
-  
+
+  - ansible 2: не работает deploy
+

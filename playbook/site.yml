@@ -2,13 +2,13 @@
 - hosts: default
   gather_facts: yes
   roles:
+    - unix
     - repo
     - tools
     - ssh
     - mysql
-    - { role: user, when: mysql_is_installed }
+    - user
     - nginx
     - php
     - postfix
     - iptables
-    #- cloud-rackspace
