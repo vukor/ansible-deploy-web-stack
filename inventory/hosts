@@ -1,4 +1,2 @@
 [default]
-#root@10.211.55.61
-root@10.211.55.62
-
+centos-7-build-machine
