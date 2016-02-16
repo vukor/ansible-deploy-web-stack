@@ -22,7 +22,7 @@ server {
 	#}
 
 	## php settings
-	location ~ (index|xmlrpc|wp-login)\.php$|/wp-admin/*\.php$ {
+	location ~ (index|xmlrpc|wp-login)\.php$|/wp-admin/(.*)\.php$ {
 		fastcgi_pass   127.0.0.1:9000;
 		fastcgi_index  index.php;
 		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
