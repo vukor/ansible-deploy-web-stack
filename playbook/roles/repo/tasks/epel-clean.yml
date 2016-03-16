@@ -1,4 +1,0 @@
----
-- name: Remove EPEL repository
-  yum: name=epel-release state=absent
-

@@ -1,0 +1,9 @@
+---
+- name: Remove EPEL, REMI, Zabbix repo
+  yum:
+    name={{item}}
+    state=absent
+  with_items:
+    - epel-release
+    - remi-relese
+    - zabbix-release

@@ -1,4 +1,0 @@
----
-- name: Remove REMI repository
-  yum: name=remi-release state=absent
-

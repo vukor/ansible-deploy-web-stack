@@ -2,17 +2,11 @@
 - include: epel.yml
   tags: setup,repo,epel
 
-- include: epel-clean.yml
-  tags: clean
-
 - include: remi.yml
   tags: setup,repo,remi
-
-- include: remi-clean.yml
-  tags: clean
 
 - include: zabbix.yml
   tags: setup,hotfix,repo,zabbix
 
-- include: zabbix-clean.yml
+- include: clean.yml
   tags: clean

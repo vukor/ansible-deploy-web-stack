@@ -1,4 +1,0 @@
----
-- name: Remove Zabbix repository
-  yum: name=zabbix-release state=absent
-
