@@ -1,0 +1,50 @@
+---
+- name: Disable and stop service for CentOS 6
+  service: >
+    name=mysqld
+    enabled=no
+    state=stopped
+  when: ansible_distribution_major_version == "6"
+
+- name: Disable and stop service for CentOS 7
+  service: >
+    name=mariadb
+    enabled=no
+    state=stopped
+  when: ansible_distribution_major_version == "7"
+
+- name: Remove config
+  command: rm -f /etc/my.cnf
+
+- name: Remove log
+  command: rm -rf /var/log/mysql
+
+- name: Remove root config
+  command: rm -f /root/.my.cnf
+
+- name: Remove logrotate
+  command: rm -f /etc/logrotate.d/mysqld
+
+- name: Remove packages fo CentOS 6
+  yum: >
+    pkg={{item}}
+    state=absent
+  with_items:
+    - mysql
+    - mysql-server
+    - MySQL-python
+  when: ansible_distribution_major_version == "6"
+
+- name: Remove packages for CentOS 7
+  yum: >
+    pkg={{item}}
+    state=absent
+  with_items:
+    - mariadb
+    - mariadb-server
+    - MySQL-python
+  when: ansible_distribution_major_version == "7"
+
+- name: Remove databases
+  command: rm -rf /var/lib/mysql/
+
