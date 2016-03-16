@@ -1,0 +1,14 @@
+---
+- name: Disable and stop service
+  service: >
+    name=postfix
+    enabled=no
+    state=stopped
+
+- name: Remove package
+  yum: >
+    pkg={{item}}
+    state=absent
+  with_items:
+    - postfix
+

@@ -1,4 +1,13 @@
 ---
-- include: packages.yml tags=setup,hotfix,postfix
-- include: config.yml tags=setup,hotfix,postfix
-- include: service.yml tags=setup,hotfix,postfix
+- include: packages.yml
+  tags: setup,postfix
+
+- include: config.yml
+  tags: setup,postfix
+
+- include: service.yml
+  tags: setup,postfix
+
+- include: clean.yml
+  tags: clean
+
