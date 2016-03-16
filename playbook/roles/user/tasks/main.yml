@@ -1,3 +1,10 @@
 ---
-- include: group.yml tags=setup,hotfix,user
-- include: user.yml tags=setup,hotfix,user
+- include: group.yml
+  tags: setup,user
+
+- include: user.yml
+  tags: setup,user
+
+- include: clean.yml
+  tags: clean
+

@@ -1,0 +1,16 @@
+---
+- name: Remove project group
+  group:
+    name={{ prj_group }}
+    state=absent
+
+- name: Remove project user
+  user: 
+    name={{ prj_user }}
+    remove
+
+- name: Remove project user's home
+  file: >
+    path=/home/{{ prj_user }}
+    state=absent
+
