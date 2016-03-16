@@ -1,5 +1,16 @@
 ---
-- include: packages.yml tags=setup,hotfix,php
-- include: config.yml tags=setup,hotfix,php
-- include: perm.yml tags=setup,hotfix,perm,php
-- include: service.yml tags=setup,hotfix,php
+- include: packages.yml
+  tags: setup,php
+
+- include: config.yml
+  tags: setup,php
+
+- include: perm.yml
+  tags: setup,php
+
+- include: service.yml
+  tags: setup,php
+
+- include: clean.yml
+  tags: clean
+
