@@ -1,0 +1,18 @@
+---
+- name: Remove system packages
+  yum: >
+    pkg={{item}}
+    state=absent
+  with_items:
+    - vim-enhanced
+    - ntsysv
+    - screen
+    - mc
+    - wget
+    - mailx
+    - man
+    - libselinux-python
+    - rsync
+
+- name: Remove vim config
+  command: rm -f /root/.vimrc

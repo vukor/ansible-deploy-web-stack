@@ -1,2 +1,6 @@
 ---
-- include: tools.yml tags=setup,hotfix,tools
+- include: tools.yml
+  tags: setup,tools
+
+- include: tools-clean.yml
+  tags: clean
