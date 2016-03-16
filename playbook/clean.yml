@@ -1,0 +1,15 @@
+---
+- hosts: default
+  gather_facts: yes
+  roles:
+    - iptables
+    - postfix
+    - php
+    - nginx
+    - user
+    - mysql
+    - ssh
+    - tools
+    - repo
+    - unix
+
