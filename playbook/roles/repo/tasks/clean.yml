@@ -1,5 +1,5 @@
 ---
-- name: Remove EPEL, REMI, Zabbix repo
+- name: Remove Epel, Remi, Zabbix repo
   yum:
     name={{item}}
     state=absent
@@ -7,3 +7,7 @@
     - epel-release
     - remi-relese
     - zabbix-release
+
+- name: Remove yum cache
+  command: yum clean all
+
