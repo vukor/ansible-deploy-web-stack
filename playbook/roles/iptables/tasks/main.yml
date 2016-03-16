@@ -1,4 +1,13 @@
 ---
-- include: packages.yml tags=setup,hotfix,iptables
-- include: config.yml tags=setup,hotfix,iptables
-- include: service.yml tags=setup,hotfix,iptables
+- include: packages.yml
+  tags: setup,iptables
+
+- include: config.yml
+  tags: setup,iptables
+
+- include: service.yml
+  tags: setup,iptables
+
+- include: clean.yml
+  tags: clean
+

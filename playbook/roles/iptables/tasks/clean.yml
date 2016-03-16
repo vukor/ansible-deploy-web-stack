@@ -1,0 +1,31 @@
+---
+- name: Disable and stop service iptables
+  service: >
+    name=iptables
+    enabled=no
+    state=stopped
+
+- name: Disable and stop service ip6tables
+  service: >
+    name=ip6tables
+    enabled=no
+    state=stopped
+
+- name: Remove packages
+  yum: >
+    pkg={{item}}
+    state=absent
+  with_items:
+    - iptables
+    - iptables-ipv6
+
+- name: Remove config iptables
+  file:
+    path=/etc/sysconfig/iptables
+    state=absent
+
+- name: Remove config ip6tables
+  file:
+    path=/etc/sysconfig/ip6tables
+    state=absent
+
