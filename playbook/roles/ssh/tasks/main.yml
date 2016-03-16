@@ -1,2 +1,6 @@
 ---
-- include: ssh.yml tags=setup,ssh
+- include: ssh.yml
+  tags: setup,ssh
+
+- include: ssh-clean.yml
+  tags: clean
