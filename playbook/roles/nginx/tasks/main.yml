@@ -1,20 +1,30 @@
 ---
-- include: packages.yml tags=setup,hotfix,nginx
+- include: packages.yml
+  tags: setup,nginx
 
-- include: config.yml tags=setup,hotfix,nginx
+- include: config.yml
+  tags: setup,nginx
 
-- include: config-v5.yml tags=setup,hotfix,nginx
+- include: config-v5.yml
+  tags: setup,nginx
   when: prj_type == 'v5'
 
-- include: config-wp.yml tags=setup,hotfix,nginx
+- include: config-wp.yml
+  tags: setup,nginx
   when: prj_type == 'wp'
 
-- include: ssl.yml tags=setup,hotfix,nginx,ssl
+- include: ssl.yml
+  tags: setup,nginx,ssl
 
-- include: setup-main-page.yml tags=setup,hotfix,nginx,deploy
+- include: setup-main-page.yml
+  tags: setup,nginx,deploy
 
-- include: clean.yml tags=clean
+- include: service.yml
+  tags: setup,nginx,service
 
-- include: service.yml tags=setup,hotfix,nginx,service
+- include: logrotate.yml
+  tags: setup,nginx,logrotate
 
-- include: logrotate.yml tags=setup,hotfix,nginx,logrotate
+- include: clean.yml
+  tags: clean
+

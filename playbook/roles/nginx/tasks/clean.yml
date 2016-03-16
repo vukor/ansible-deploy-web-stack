@@ -1,22 +1,37 @@
 ---
-- name: Delete v5 config
-  file: >
-    path=/etc/nginx/hosts/{{ prj_host }}.conf
+- name: Disable and stop service
+  service:
+    name=nginx
+    enabled=no
+    state=stopped
+
+- name: Remove packages
+  yum:
+    pkg={{item}}
+    state=absent
+  with_items:
+    - nginx
+
+- name: Remove repository
+  yum:
+    name=nginx-release
     state=absent
 
-- name: Delete v5 ssl config
-  file: >
-    path=/etc/nginx/hosts/{{ prj_host }}-ssl.conf
+- name: Remove config
+  file:
+    path=/etc/nginx/
     state=absent
-  when: prj_ssl
 
-- name: Delete wp security config
-  file: >
-    path=/etc/nginx/includes/wp-security.conf
+- name: Remove www directory
+  file:
+    path=/home/dev/www/{{ prj_host }}/www/
     state=absent
-  when: prj_type == 'wp'
 
-- name: Delete www directory
-  file: >
-    path=/home/dev/www/{{ prj_host }}/
+- name: Remove logrotate
+  file:
+    path=/etc/logrotate.d/{{item}}
     state=absent
+  with_items:
+    - www.conf
+    - dev.conf
+
