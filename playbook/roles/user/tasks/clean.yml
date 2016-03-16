@@ -2,12 +2,12 @@
 - name: Remove project user
   user: 
     name={{ prj_user }}
-    remove
+    remove=yes
 
 - name: Remove project group
   group:
     name={{ prj_group }}
-    remove
+    remove=yes
 
 - name: Remove project user's home
   file: >
