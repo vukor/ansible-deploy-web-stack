@@ -6,7 +6,13 @@
   tags: clean
 
 - include: remi.yml
-  tags: setup,hotfix,repo,remi
+  tags: setup,repo,remi
+
+- include: remi-clean.yml
+  tags: clean
 
 - include: zabbix.yml
   tags: setup,hotfix,repo,zabbix
+
+- include: zabbix-clean.yml
+  tags: clean
