@@ -1,6 +1,9 @@
 ---
 - include: epel.yml
-  tags: setup,hotfix,repo,epel
+  tags: setup,repo,epel
+
+- include: epel-clean.yml
+  tags: clean
 
 - include: remi.yml
   tags: setup,hotfix,repo,remi
