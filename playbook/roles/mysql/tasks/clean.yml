@@ -50,10 +50,12 @@
     path=/var/lib/mysql/
     state=absent
 
-- name: Remove user and group
+- name: Remove user
   user:
     name=mysql
     state=absent
+
+- name: Remove group
   group:
     name=mysql
     state=absent
