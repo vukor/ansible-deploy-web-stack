@@ -17,7 +17,7 @@ How it's work
 
 * Install ansible version 1.9
 
-* Set hostname or ip of your server in inventory/hosts. You have to public-key SSH authentication on your server.
+* Set hostname or ip of your server in inventory/hosts. You have to setup the public-key SSH authentication on your server.
 
 * Configure inventory/group_vars/all.yml
 
@@ -46,6 +46,12 @@ In plans
 * Add roles rsnapshot and holland
 * Add dkim feature
 * Add zabbix role with ztc plugins - https://xakep.ru/2014/08/13/using-zabbix/
+
+
+Useful links
+============
+  - https://www.ansible.com
+  - http://rpms.famillecollet.com
 
 
 The MIT License (MIT)
