@@ -2,5 +2,5 @@
 - include: tools.yml
   tags: setup,tools
 
-- include: tools-clean.yml
+- include: clean.yml
   tags: clean
