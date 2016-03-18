@@ -2,9 +2,9 @@
 - hosts: default
   gather_facts: yes
   roles:
+    - tools
     - unix
     - repo
-    - tools
     - ssh
     - mysql
     - user

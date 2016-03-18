@@ -9,7 +9,6 @@
     - user
     - mysql
     - ssh
-    - tools
     - repo
     - unix
-
+    - tools
