@@ -1,2 +1,7 @@
 ---
-- include: hostname.yml tags=setup,hotfix,unix
+- include: hostname.yml
+  tags: setup,hotfix,unix
+
+- include: timezone.yml
+  tags: setup,hotfix,unix
+

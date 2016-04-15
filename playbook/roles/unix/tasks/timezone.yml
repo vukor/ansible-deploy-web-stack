@@ -1,0 +1,4 @@
+---
+- name: Set timezone
+  copy: src=/usr/share/zoneinfo/{{ prj_timezone }} dest=/etc/localtime
+
