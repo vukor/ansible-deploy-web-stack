@@ -2,6 +2,9 @@
 - include: packages.yml
   tags: setup,mysql
 
+- include: user.yml
+  tags: setup,mysql
+
 - include: config.yml
   tags: setup,mysql
 

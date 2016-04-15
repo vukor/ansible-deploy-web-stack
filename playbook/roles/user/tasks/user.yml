@@ -3,7 +3,6 @@
   user: >
     name={{ prj_user }}
     group={{ prj_group }}
-    groups=mysql
     comment="account for developers"
     shell=/bin/bash
     state=present

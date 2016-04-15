@@ -1,0 +1,7 @@
+---
+- name: Append project user to group mysql
+  user: >
+    name={{ prj_user }}
+    groups=mysql
+    append=yes
+
