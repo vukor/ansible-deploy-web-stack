@@ -7,6 +7,9 @@
   yum: name=http://nginx.org/packages/centos/7/x86_64/RPMS/nginx-1.8.0-1.el7.ngx.x86_64.rpm
   when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
 
+- name: Install pub key for Nginx Repo, turn on gpg check in yum
+  command: rpm --import http://nginx.org/keys/nginx_signing.key && sed -i 's/gpgcheck=0/gpgcheck=1/' /etc/yum.repos.d/nginx.repo
+          
 - name: Install packages
   yum: >
     pkg={{item}}
