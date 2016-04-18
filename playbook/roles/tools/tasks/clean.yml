@@ -15,4 +15,7 @@
     - rsync
 
 - name: Remove vim config
-  command: rm -f /root/.vimrc
+  file: >
+    path = /root/.vimrc
+    state = absent
+
