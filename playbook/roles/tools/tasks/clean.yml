@@ -16,6 +16,6 @@
 
 - name: Remove vim config
   file: >
-    path = /root/.vimrc
-    state = absent
+    path=/root/.vimrc
+    state=absent
 
