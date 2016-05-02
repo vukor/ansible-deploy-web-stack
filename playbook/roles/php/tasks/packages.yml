@@ -80,3 +80,19 @@
     - php-gd
     - php-fpm
   when: php_version == 5.6
+
+## Install remi PHP version 7.0 in CentOS 6/7
+- name: Install remi PHP version 7.0
+  yum: >
+    pkg={{item}}
+    enablerepo=remi,remi-php70
+    state=latest
+  with_items:
+    - php
+    - php-cli
+    - php-mysql
+    - php-mbstring
+    - php-gd
+    - php-fpm
+  when: php_version == 7.0
+
