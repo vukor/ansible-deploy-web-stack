@@ -3,6 +3,7 @@
   user: >
     name={{ prj_user }}
     group={{ prj_group }}
+    uid=1000
     comment="account for developers"
     shell=/bin/bash
     state=present
