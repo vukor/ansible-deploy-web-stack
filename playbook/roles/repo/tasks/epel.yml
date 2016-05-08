@@ -4,5 +4,5 @@
   when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "6")
 
 - name: Install EPEL repository for CentOS 7
-  yum: name=https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm state=present
+  yum: name=https://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm state=present
   when: (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
