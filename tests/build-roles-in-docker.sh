@@ -19,8 +19,9 @@ yum install ansible1.9 -y
 ## Build on localhost
 echo "localhost ansible_connection=local prj_host=centos${version}.local" >> inventory/hosts
 
-## Disable iptables (fail build in docker)
+## Disable some roles (build failed in docker)
 sed -i '/iptables/d' playbook/setup.yml
+sed -i '/unix/d' playbook/setup.yml
 
 ## Build roles with ansible
 ansible-playbook --timeout=60 playbook/setup.yml -t setup
