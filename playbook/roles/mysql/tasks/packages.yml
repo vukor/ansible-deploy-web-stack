@@ -2,6 +2,7 @@
 - name: Install packages for CentOS 6
   yum: >
     pkg={{item}}
+    enablerepo=remi
     state=latest
   with_items:
     - mysql
